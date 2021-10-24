@@ -1,45 +1,60 @@
 import type {NextPage} from 'next'
-import Head from 'next/head'
 import Container from './components/container'
 import Link from 'next/link'
 
 const Home: NextPage = () => {
   return (
     <Container>
-      <Head>
-        <title>Brij Demo</title>
-        <meta name="description" content="Product QR codes" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div className="flex flex-col justify-center">
+      <div className="pt-4">
         <header>
-          <h1 className="text-6xl text-white pt-4 font-bold tracking-tighter leading-tight md:leading-none text-center">
-            Brij Demo
-          </h1>
-          <h3 className="text-3xl font-bold text-brij2 pt-4 leading-tight md:leading-none text-center">
-            Give your products superpowers!
-          </h3>
+          <div className=" text-4xl font-medium tracking-tight font-sans leading-none  text-white pt-4 text-center">
+            Give your products
+            <br />
+            <span className="text-4xl font-medium tracking-tighter font-sans leading-none italic text-brij2 pt-4 text-center">
+              superpowers!
+            </span>
+          </div>
         </header>
 
-        <h3 className="text-3xl font-bold text-white pt-4 leading-tight md:leading-none text-center">
-          Products
-        </h3>
-        <ul>
-          <li className="text-2xl font-bold text-white pt-4 -tighter leading-tight md:leading-none text-center">
-            <button className="bg-brij2 hover:shadow-xl rounded p-2">
-              <Link href="/products/1">
-                <a>Product 1</a>
-              </Link>
-            </button>
-          </li>
-          <li className="text-2xl font-bold text-white pt-4 -tighter leading-tight md:leading-none text-center">
-            <button className="bg-brij2 rounded p-2 hover:shadow-xl -opacity-40">
-              <Link href="products/2">
-                <a>Product 2</a>
-              </Link>
-            </button>
-          </li>
-        </ul>
+        <div className="flex flex-row justify-between pt-10">
+          <div className="text-lg  ml-5 text-center text-white">
+            Built-with ------------👉
+          </div>
+          <div className="text-right mr-3 leading-3">
+            <div className="text-lg text-white  text-left">React</div>
+            <div className="text-lg text-white leading-3 text-left opacity-60">
+              Typescript
+            </div>
+            <div className="text-lg text-white text-left opacity-50">
+              Next.js
+            </div>
+            <div className="text-lg text-white leading-3 text-left opacity-40">
+              Tailwindcss
+            </div>
+            <div className="text-lg text-white text-left opacity-30">
+              ESLint
+            </div>
+          </div>
+        </div>
+
+        <section className=" pt-12">
+          <div>
+            <div className=" text-white text-center p-4">
+              <button className="bg-brij2 border-4 border-brij2 text-2xl hover:shadow-xl rounded-full px-1 py-2">
+                <Link href="/products/1">
+                  <a className="mx-5">Request product 1</a>
+                </Link>
+              </button>
+            </div>
+            <div className=" text-white text-center p-4">
+              <button className="bg-brij border-4 border-brij2 text-2xl hover:shadow-xl rounded-full px-1 py-2">
+                <Link href="products/2">
+                  <a className="mx-5">Request product 2</a>
+                </Link>
+              </button>
+            </div>
+          </div>
+        </section>
       </div>
     </Container>
   )

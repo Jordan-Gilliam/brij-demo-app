@@ -2,3 +2,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  max-width: 680px;
+  background-color: #4b6efa;
+  margin: 0 auto;
+}

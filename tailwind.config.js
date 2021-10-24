@@ -11,7 +11,9 @@ module.exports = {
       brij2: '#00d7c8',
       white: '#ffffff',
     },
-    extend: {},
+    extend: {
+      backGroundImage: {},
+    },
   },
   variants: {
     extend: {},

@@ -1,4 +1,5 @@
 import {GetServerSideProps, InferGetServerSidePropsType} from 'next'
+import React from 'react'
 import Image from 'next/image'
 import Container from '../components/container'
 
@@ -14,6 +15,7 @@ interface Product {
   active: string
   variant: string
   image: string
+  details?: object
   ageRestricted: boolean
 }
 
@@ -32,6 +34,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
       `https://fir-hosting-app-clip.web.app/.well-known/api/${id}.json`,
     )
     const data: Data = await res.json()
+    console.log(data)
 
     return {
       props: {data},
@@ -50,29 +53,25 @@ function Page({data}: InferGetServerSidePropsType<typeof getServerSideProps>) {
     <Container>
       <div className="flex flex-col justify-center">
         <header>
-          <h1 className="text-6xl pt-4 text-white font-bold tracking-tighter leading-tight md:leading-none text-center">
+          <h1 className="text-6xl  text-white font-bold tracking-tighter leading-tight ">
             {brand.name}
           </h1>
-          <h3 className="text-3xl font-bold text-brij2 pt-4 -tighter leading-tight md:leading-none text-center">
+          <h3 className="text-3xl font-bold italic text-brij2  -tighter leading-tight ">
             {product.name}
           </h3>
         </header>
 
-        {product?.details && (
-          <div className="text-center pt-4">
-            <p className="text-1xl text-white pt-1">
-              Size - {product?.details?.size}
-            </p>
-            <p className="text-1xl text-white pt-1">
-              Color - {product?.details?.color}
-            </p>
-            <p className="text-1xl text-white pt-1">
-              Fur - {product?.details?.Fur}
-            </p>
-          </div>
-        )}
+        <ul className=" pt-4">
+          {product?.details &&
+            Object.entries(product?.details).map(([key, value]) => (
+              <li
+                key={`${key}-details`}
+                className="text-sm text-white leading-2"
+              >{`${key} - ${value}`}</li>
+            ))}
+        </ul>
 
-        <div className="inset-0 w-full text-center h-full object-cover pt-6">
+        <div className="inset-0 w-full text-center h-full object-cover pt-4">
           <Image
             src={product.image}
             alt={'Product Image'}
