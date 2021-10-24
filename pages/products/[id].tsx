@@ -34,7 +34,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
       `https://fir-hosting-app-clip.web.app/.well-known/api/${id}.json`,
     )
     const data: Data = await res.json()
-    console.log(data)
 
     return {
       props: {data},

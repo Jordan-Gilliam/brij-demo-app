@@ -17,9 +17,12 @@ const Layout: FunctionComponent = ({children}: Props) => {
 
         <div className=" text-white text-center pt-4">
           <button className="bg-brij border-2 font-extralight border-white text-sm hover:shadow-xl rounded-full py-0.5">
-            <Link href="/">
-              <a className="mx-2">Github</a>
-            </Link>
+            <a
+              href="https://github.com/Jordan-Gilliam/brij-demo-app"
+              className="mx-2"
+            >
+              Github
+            </a>
           </button>
         </div>
       </nav>
